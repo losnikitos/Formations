@@ -2,10 +2,13 @@
  * Created by Nikita on 29/10/13.
  */
 $(function () {
-    $(".player").draggable({ containment: ".container"});
+    $(".player").draggable();
 
     var f = new Formation('4-4-2');
     f.populateIn($("#field"));
+
+    $(".place").draggable({ containment: "parent"});
+
 });
 
 var Formation = function (name) {

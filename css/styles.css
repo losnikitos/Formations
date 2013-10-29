@@ -1,13 +1,19 @@
 .player
 {
     display:inline-block;
-    width: 50px;
-    height: 50px;
+
     margin: 10px;
-    background-color: #449d44;
+    background-color: #d43f3a;
     color: #ffffff;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
+
+    width:40px;
+    height:40px;
+    border-radius: 40px;
+
+    z-index: 100;
+
 }
 
 .place
@@ -23,6 +29,8 @@
     font-weight: bold;
     text-align: center;
     padding-top: 5px;
+
+    cursor: pointer;
 }
 
 #field
