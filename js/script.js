@@ -1,14 +1,17 @@
-/**
- * Created by Nikita on 29/10/13.
- */
 $(function () {
-    $(".player").draggable({snap: ".placeHolder", snapMode:'inner'});
 
-    var f = new Formation('4-4-2');
-    f.populateIn($("#field"));
+    new Formation('4-4-2').populateIn($("#field"));
 
     $(".placeHolder").draggable({ containment: "parent"});
 
+    $(".placeHolder").droppable({
+        hoverClass: "hover",
+        drop: function (event, ui) {
+            $(this).addClass("highlight");
+        }
+    });
+
+    $(".player").draggable();
 });
 
 var Formation = function (name) {
@@ -51,8 +54,8 @@ var Place = function (name, position) {
     this.asHTML = function () {
         var placeHolder = $('<div/>');
         placeHolder.addClass('placeHolder');
-        placeHolder.css("left", this.x / 50 * scaleX -20);
-        placeHolder.css("top", this.y / 100 * scaleY -20);
+        placeHolder.css("left", this.x / 50 * scaleX - 20);
+        placeHolder.css("top", this.y / 100 * scaleY - 20);
 
         var placeIcon = $('<div/>');
         placeIcon.html(this.name);
@@ -61,6 +64,6 @@ var Place = function (name, position) {
 
         placeIcon.appendTo(placeHolder);
 
-        return placeHolder
+        return placeHolder;
     }
 }
