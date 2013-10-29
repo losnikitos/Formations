@@ -12,5 +12,27 @@
 
 .place
 {
-    position: fixed;
+    position: absolute;
+
+    width:30px;
+    height:30px;
+    border-radius: 30px;
+    background-color: goldenrod;
+
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#field
+{
+    background-image: url('../img/field.jpg');
+    height:500px;
+    width: 313px;
+
+    position: absolute;
+    left: 500px;
+    top: 10px;
+    border: 1px solid darkgray;
 }
