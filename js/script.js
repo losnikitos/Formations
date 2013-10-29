@@ -2,12 +2,12 @@
  * Created by Nikita on 29/10/13.
  */
 $(function () {
-    $(".player").draggable();
+    $(".player").draggable({snap: ".placeHolder", snapMode:'inner'});
 
     var f = new Formation('4-4-2');
     f.populateIn($("#field"));
 
-    $(".place").draggable({ containment: "parent"});
+    $(".placeHolder").draggable({ containment: "parent"});
 
 });
 
@@ -15,11 +15,11 @@ var Formation = function (name) {
     this.positions = [];
 
     if (name = "4-4-2") {
-        this.positions.push(new Place('CF', {x: 15, y: 20}));
-        this.positions.push(new Place('CF', {x: 35, y: 20}));
+        this.positions.push(new Place('ST', {x: 15, y: 20}));
+        this.positions.push(new Place('ST', {x: 35, y: 20}));
 
-        this.positions.push(new Place('SM', {x: 10, y: 40}));
-        this.positions.push(new Place('SM', {x: 40, y: 40}));
+        this.positions.push(new Place('LM', {x: 10, y: 40}));
+        this.positions.push(new Place('RM', {x: 40, y: 40}));
 
         this.positions.push(new Place('CM', {x: 20, y: 50}));
         this.positions.push(new Place('CM', {x: 30, y: 50}));
@@ -49,11 +49,18 @@ var Place = function (name, position) {
     var scaleY = 500;
 
     this.asHTML = function () {
-        var d = $('<div/>');
-        d.addClass('place');
-        d.html(this.name);
-        d.css("left", this.x / 50 * scaleX -15);
-        d.css("top", this.y / 100 * scaleY -15);
-        return d;
+        var placeHolder = $('<div/>');
+        placeHolder.addClass('placeHolder');
+        placeHolder.css("left", this.x / 50 * scaleX -20);
+        placeHolder.css("top", this.y / 100 * scaleY -20);
+
+        var placeIcon = $('<div/>');
+        placeIcon.html(this.name);
+        placeIcon.addClass('placeIcon');
+
+
+        placeIcon.appendTo(placeHolder);
+
+        return placeHolder
     }
 }
