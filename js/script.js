@@ -6,12 +6,18 @@ $(function () {
 
     $(".placeHolder").droppable({
         hoverClass: "hover",
-        drop: function (event, ui) {
-            $(this).addClass("highlight");
+        drop: function(ev, ui) {
+            $(ui.draggable).detach().css({top: -40,left: 0}).appendTo(this);
         }
+//        drop: function (event, ui) {
+//            ui.draggable.animate()
+            //$(this).addClass("highlight");
+//        }
     });
 
     $(".player").draggable();
+
+
 });
 
 var Formation = function (name) {
@@ -33,7 +39,7 @@ var Formation = function (name) {
         this.positions.push(new Place('CB', {x: 20, y: 75}));
         this.positions.push(new Place('CB', {x: 30, y: 75}));
 
-        this.positions.push(new Place('K', {x: 25, y: 90}));
+        this.positions.push(new Place('GK', {x: 25, y: 90}));
     }
 
     this.populateIn = function (container) {
@@ -54,8 +60,8 @@ var Place = function (name, position) {
     this.asHTML = function () {
         var placeHolder = $('<div/>');
         placeHolder.addClass('placeHolder');
-        placeHolder.css("left", this.x / 50 * scaleX - 20);
-        placeHolder.css("top", this.y / 100 * scaleY - 20);
+        placeHolder.css("left", this.x / 50 * scaleX - 30);
+        placeHolder.css("top", this.y / 100 * scaleY - 30);
 
         var placeIcon = $('<div/>');
         placeIcon.html(this.name);
