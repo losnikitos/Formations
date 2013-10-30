@@ -6,16 +6,13 @@ $(function () {
 
     $(".placeHolder").droppable({
         hoverClass: "hover",
-        drop: function(ev, ui) {
+        accept: ".player",
+        drop: function (ev, ui) {
             $(ui.draggable).detach().css({top: -40,left: 0}).appendTo(this);
         }
-//        drop: function (event, ui) {
-//            ui.draggable.animate()
-            //$(this).addClass("highlight");
-//        }
     });
 
-    $(".player").draggable();
+    $(".player").draggable({ revert: "invalid" });
 
 
 });
@@ -33,8 +30,8 @@ var Formation = function (name) {
         this.positions.push(new Place('CM', {x: 20, y: 50}));
         this.positions.push(new Place('CM', {x: 30, y: 50}));
 
-        this.positions.push(new Place('FB', {x: 10, y: 70}));
-        this.positions.push(new Place('FB', {x: 40, y: 70}));
+        this.positions.push(new Place('LB', {x: 10, y: 70}));
+        this.positions.push(new Place('RB', {x: 40, y: 70}));
 
         this.positions.push(new Place('CB', {x: 20, y: 75}));
         this.positions.push(new Place('CB', {x: 30, y: 75}));
