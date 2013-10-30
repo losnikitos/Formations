@@ -1,6 +1,6 @@
 $(function () {
-
     new Formation('4-4-2').populateIn($("#field"));
+    new Team().populateIn($("#playersList"))
 
     $(".placeHolder").draggable({ containment: "parent"});
 
@@ -8,7 +8,7 @@ $(function () {
         hoverClass: "hover",
         accept: ".player",
         drop: function (ev, ui) {
-            $(ui.draggable).detach().css({top: -40,left: 0}).appendTo(this);
+            $(ui.draggable).detach().css({top: -40, left: 0}).appendTo(this);
         }
     });
 
