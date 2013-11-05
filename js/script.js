@@ -1,13 +1,9 @@
 $(function () {
+    //new Team().populateIn($("#playersList"));
+
+    field = new Field($("#field"));
     var defaultFormation = new Formations().get('4-4-2');
-
-    new Team().populateIn($("#playersList"));
-
-    var field = new Field($("#field"));
-    field.buildFormation(defaultFormation);
-
-
-
+    defaultFormation.apply(field);
 
     $(".placeHolder").draggable({ containment: "parent"});
 

@@ -29,7 +29,7 @@ var Formations = function () {
     this.get = function (name) {
         return $.grep(formations, function (e) {
             return e.name == name;
-        });
+        })[0];
     }
 }
 
@@ -43,12 +43,16 @@ var Formation = function (name, positions) {
     this.name = name;
     this.positions = positions;
 
-    this.populateIn = function (container) {
-        this.positions.forEach(function (pos) {
+    /**
+     * Применяем расстановку
+     * @param field
+     */
+    this.apply = function (field) {
+        for (var i = 0; i < 11; i++) {
+            var pos = this.positions[i];
+            var place = field.places[i];
 
-
-
-            container.append(pos.asHTML());
-        });
+            place.moveTo(pos);
+        }
     }
 };
