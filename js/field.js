@@ -29,8 +29,17 @@ function Field(elem) {
     var screenScew = 0.02;
     var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
 
-    this.screenToField = function (position) {
+    this.screenToField = function (screenposition) {
+        //переходим в координаты от центра экрана
+        var fromscreencenter = {x: screenposition.x - screenCenter.x, y: screenposition.y - screenCenter.y};
 
+        // переходим в координаты на поле
+        var infield = {x: fromscreencenter.x / k.x, y: fromscreencenter.y / k.y};
+
+        //отменяем перспективу
+        infield.x /= (1 + infield.y * screenScew);
+
+        return {x: infield.x + fieldCenter.x, y: infield.y + fieldCenter.y};
     }
 
     /**

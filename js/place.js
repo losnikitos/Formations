@@ -33,7 +33,7 @@ function Place(position) {
      * Обновляем элемент-представление
      */
     this.updateView = function () {
-        this.elem.css({"left": this.onScreen.x - size/2, "top": this.onScreen.y-size/2});
+        this.elem.animate({"left": this.onScreen.x - size/2, "top": this.onScreen.y-size/2},1000);
         this.elem.html(this.name);
     }
 
@@ -42,6 +42,6 @@ function Place(position) {
      * todo: написать
      */
     this.onDrag = function () {
-
+        this.elem.html
     }
 }
