@@ -26,7 +26,7 @@ function Field(elem) {
     var screenCenter = {x: 335, y: 269};
 
     // Коэффициенты
-    var screenScew = 0.2;
+    var screenScew = 0.02;
     var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
 
     this.screenToField = function (position) {
@@ -43,7 +43,7 @@ function Field(elem) {
         var fromcenter = {x: position.x - fieldCenter.x, y: position.y - fieldCenter.y};
 
         //перспектива
-        fromcenter.x += fromcenter.y * screenScew;
+        fromcenter.x *= (1 + fromcenter.y * screenScew);
 
         //переходим в координаты на экране от центра
         var onscreen = {x: fromcenter.x * k.x, y: fromcenter.y * k.y};
