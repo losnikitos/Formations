@@ -36,16 +36,10 @@ function Place(id, position) {
     this.moveTo = function (positionOnField) {
         this.onField = positionOnField;
         this.onScreen = this.field.fieldToScreen(positionOnField);
-        this.elem.animate({"left": this.onScreen.x - anchor.x, "top": this.onScreen.y - anchor.y}, 1000);
+        this.elem.animate({"left": this.onScreen.x - anchor.x, "top": this.onScreen.y - anchor.y}, 500, "easeOutCubic");
         this.updateLabel();
     }
 
-    this.flyTo = function (positionOnField) {
-        this.onField = positionOnField;
-        this.onScreen = this.field.fieldToScreen(position);
-        this.elem.animate({"left": this.onScreen.x - anchor.x, "top": this.onScreen.y - anchor.y}, 1000);
-        this.updateLabel();
-    }
     /**
      * Обновляем элемент-представление
      */
