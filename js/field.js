@@ -7,6 +7,21 @@ function Field(elem) {
     this.elem = elem;
     this.places = [];
 
+
+
+    var fieldWidth = 50, fieldLength = 100;
+    var fieldCenter = {x: fieldWidth / 2, y: fieldLength / 2};
+
+    // Координаты на картинке, в пикселях
+//    var screenWidth = 208 * 2, screenHeight = 190 * 2;
+//    var screenCenter = {x: 335, y: 269};
+    var screenWidth = 208 * 2, screenHeight = 300;
+    this.screenCenter = {x: 480, y: 320};
+
+    // Коэффициенты
+    var screenScew = 0.008;
+    var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
+
     this.addPlace = function(place)
     {
         this.places.push(place)
@@ -16,22 +31,11 @@ function Field(elem) {
     }
 
     for(var i = 0; i<11; i++)
-        this.addPlace(new Place({x:25,y:50}));
-
-    var fieldWidth = 50, fieldLength = 100;
-    var fieldCenter = {x: fieldWidth / 2, y: fieldLength / 2};
-
-    // Координаты на картинке, в пикселях
-    var screenWidth = 208 * 2, screenHeight = 190 * 2;
-    var screenCenter = {x: 335, y: 269};
-
-    // Коэффициенты
-    var screenScew = 0.02;
-    var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
+        this.addPlace(new Place(i,{x:25,y:50}));
 
     this.screenToField = function (screenposition) {
         //переходим в координаты от центра экрана
-        var fromscreencenter = {x: screenposition.x - screenCenter.x, y: screenposition.y - screenCenter.y};
+        var fromscreencenter = {x: screenposition.x - this.screenCenter.x, y: screenposition.y - this.screenCenter.y};
 
         // переходим в координаты на поле
         var infield = {x: fromscreencenter.x / k.x, y: fromscreencenter.y / k.y};
@@ -57,7 +61,7 @@ function Field(elem) {
         //переходим в координаты на экране от центра
         var onscreen = {x: fromcenter.x * k.x, y: fromcenter.y * k.y};
 
-        return {x: onscreen.x + screenCenter.x, y: onscreen.y + screenCenter.y};
+        return {x: onscreen.x + this.screenCenter.x, y: onscreen.y + this.screenCenter.y};
     }
 
     this.getRole = function (position) {

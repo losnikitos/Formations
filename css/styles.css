@@ -1,36 +1,31 @@
-#playersList
-{
+#playersList {
     list-style: none;
 }
 
-.player, .placeHolder
-{
+.player, .placeHolder {
     cursor: pointer;
 }
 
-.player
-{
+.player {
     padding: 3px;
 }
-.player img
-{
-    width:30px;
+
+.player img {
+    width: 30px;
     height: 30px;
     /*border-radius:20px;*/
     margin-right: 5px;
 }
 
-.player div
-{
+.player div {
     display: inline;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     font-size: 12px;
 }
 
-.playerIcon
-{
-    display:inline-block;
+.playerIcon {
+    display: inline-block;
 
     margin: 10px;
     background-color: #3071a9;
@@ -45,46 +40,46 @@
     z-index: 100;
 }
 
-.placeHolder
-{
+.placeHolder {
     position: absolute;
 
     font-weight: bold;
     text-align: center;
     padding-top: 5px;
 
+    color: white;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 1);
+
     width: 60px;
-    height: 60px;
+    height: 65px;
     background-image: url('../img/tshirt.png');
 
 }
 
-.placeHolder.hover
-{
+.placeHolder.hover {
     background-image: url('../img/tshirt_hi.png');
 }
-.placeIcon
-{
-    width:30px;
-    height:30px;
+
+.placeIcon {
+    width: 30px;
+    height: 30px;
     border-radius: 30px;
     /*background-color: darkred;*/
     color: white;
     text-shadow: 0 0 5px #000;
     padding-top: 10px;
 
-    position:relative;
+    position: relative;
     margin: 0 auto;
 }
 
-#field
-{
-    background-image: url('../img/bg.jpg');
-    height:535px;
-    width: 668px;
+#field {
+    background: url('../img/bg2.jpg') no-repeat;
+    height: 540px;
+    width: 960px;
+    border: 1px dashed darkgray;
+}
 
-    position: absolute;
-    left: 500px;
-    top: 10px;
-    /*border: 1px solid darkgray;*/
+#formations{
+    padding: 20px;
 }
