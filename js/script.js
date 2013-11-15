@@ -25,13 +25,13 @@ $(function () {
 //
 //        });
 
-    $(".placeHolder").droppable({
-        hoverClass: "hover",
-        accept: ".player",
-        drop: function (ev, ui) {
-            $(ui.draggable).detach().css({top: -40, left: 0}).appendTo(this);
-        }
-    });
+//    $(".placeHolder").droppable({
+//        hoverClass: "hover",
+//        accept: ".player",
+//        drop: function (ev, ui) {
+//            $(ui.draggable).detach().css({top: -40, left: 0}).appendTo(this);
+//        }
+//    });
 
     $(".player").draggable({ revert: "invalid" });
 

@@ -1,6 +1,5 @@
 /**
  * Библиотека расстановок
- * @param div Куда положим список
  * @constructor
  */
 var Formations = function () {

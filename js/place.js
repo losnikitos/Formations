@@ -26,11 +26,23 @@ function Place(position) {
         var place = this; // для замыкания
         this.elem.draggable({
             containment: "parent",
-            drag: function(event, ui) {place.onDrag(event,ui)}});
+            start: function(event, ui) {field.dragging = place, field.draggingFrom = place.onField},
+            stop: function(event, ui) {field.dragging = null},
+            drag: function(event, ui) {field.dragging.onDrag(event,ui)}});
 
         this.elem.droppable({
-            accept: ".placeIcon",
-            activeClass: "active"
+            accept: ".placeHolder",
+            hoverClass: "hover",
+            over: function(event, ui) {field.dragging.elem.addClass("hover"); field.draggingOnto = place},
+            out: function(event, ui) {field.dragging.elem.removeClass("hover")},
+            drop: function(event, ui) {
+                //exchange field.draggingOnto and field.dragging
+
+                field.dragging.moveTo(field.draggingOnto.onField);
+                field.draggingOnto.moveTo(field.draggingFrom);
+                field.dragging.elem.removeClass("hover");
+               }
+
         })
     };
 
