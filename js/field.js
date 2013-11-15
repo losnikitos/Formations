@@ -13,25 +13,20 @@ function Field(elem) {
     var fieldCenter = {x: fieldWidth / 2, y: fieldLength / 2};
 
     // Координаты на картинке, в пикселях
-//    var screenWidth = 208 * 2, screenHeight = 190 * 2;
-//    var screenCenter = {x: 335, y: 269};
-    var screenWidth = 208 * 2, screenHeight = 300;
+    var screenWidth = 450, screenHeight = 300;
     this.screenCenter = {x: 480, y: 320};
 
     // Коэффициенты
-    var screenScew = 0.008;
+    var screenSkew = 0.004;
     var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
 
-    this.addPlace = function(place)
+    for(var i = 0; i<11; i++)
     {
-        this.places.push(place)
-        place.field = this;
-        place.render();
-        elem.append(place.elem);
+        var place = new Place({x:25,y:50});
+        place.putInto(this);
+        this.places.push(place);
     }
 
-    for(var i = 0; i<11; i++)
-        this.addPlace(new Place(i,{x:25,y:50}));
 
     this.screenToField = function (screenposition) {
         //переходим в координаты от центра экрана
@@ -41,7 +36,7 @@ function Field(elem) {
         var infield = {x: fromscreencenter.x / k.x, y: fromscreencenter.y / k.y};
 
         //отменяем перспективу
-        infield.x /= (1 + infield.y * screenScew);
+        infield.x /= (1 + infield.y * screenSkew);
 
         return {x: infield.x + fieldCenter.x, y: infield.y + fieldCenter.y};
     }
@@ -56,7 +51,7 @@ function Field(elem) {
         var fromcenter = {x: position.x - fieldCenter.x, y: position.y - fieldCenter.y};
 
         //перспектива
-        fromcenter.x *= (1 + fromcenter.y * screenScew);
+        fromcenter.x *= (1 + fromcenter.y * screenSkew);
 
         //переходим в координаты на экране от центра
         var onscreen = {x: fromcenter.x * k.x, y: fromcenter.y * k.y};
