@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Формации</title>
-    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.css"/>
-    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/lib/ui-lightness/jquery-ui-1.10.3.custom.css"/>
+    <link rel="stylesheet" href="css/lib/bootstrap.css"/>
+    <!--<link rel="stylesheet" href="css/lib/makisu.css"/>-->
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
+
 <!--<div class="container">-->
 <!--<div class="col-md-4">-->
 <!--<ul id="playersList">-->
@@ -16,16 +18,46 @@
 <!--</div>-->
 <!--</div>-->
 
-    <div id="field">
-        <div id="formations"></div>
+<div id="field">
+    <div id="formations">
+        <!--Расстановки-->
+        <!--<ul>-->
+            <!--<li>4-4-2</li>-->
+            <!--<li>4-3-4</li>-->
+            <!--<li>4-3-5</li>-->
+        <!--</ul>-->
+
+        <!--<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">-->
+            <!--Расстановки-->
+        <!--</a>-->
+
+        <!--<div id="collapseOne" class="stroll panel-collapse collapse in">-->
+            <!--<button type="button">4-4-2</button>-->
+            <!--<button type="button">4-3-3</button>-->
+            <!--<button type="button">4-4-2 diamond</button>-->
+        <!--</div>-->
+
+        <div class="fleft">
+            <select id="cd-dropdown" class="cd-select">
+                <option value="-1" selected>Расстановки</option>
+                <option value="1">4-4-2</option>
+                <option value="2">4-3-3</option>
+                <option value="3">4-4-2 diamond</option>
+            </select>
+        </div>
+
 
     </div>
-<div id="info"></div>
+</div>
 
+
+<div id="info"></div>
 
 <script src="js/lib/jquery-2.0.3.js"></script>
 <script src="js/lib/jquery-ui-1.10.3.custom.js"></script>
 <script src="js/lib/bootstrap.js"></script>
+<script src="js/lib/modernizr.custom.63321.js"></script>
+<script src="js/lib/jquery.dropdown.js"></script>
 
 <script src="js/players.js"></script>
 <script src="js/place.js"></script>
@@ -38,9 +70,9 @@
 
 <!--<script src="//vk.com/js/api/xd_connection.js?2"></script>-->
 <!--<script type="text/javascript">-->
-    <!--VK.init(function () {-->
-    <!--}, function () {-->
-    <!--}, '5.2');-->
+<!--VK.init(function () {-->
+<!--}, function () {-->
+<!--}, '5.2');-->
 <!--</script>-->
 
 </body>

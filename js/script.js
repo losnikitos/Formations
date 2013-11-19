@@ -4,9 +4,17 @@ $(function () {
     field = new Field($("#field"));
     formations = new Formations();
 
-    $("#formations").append(formations.render());
+//    $("#formations").append(formations.render());
     var defaultFormation = new Formations().get('4-4-2');
     defaultFormation.apply(field);
+
+    $( '#cd-dropdown' ).dropdown( {
+        gutter : 5,
+//        stack : true,
+        delay : 100,
+        slidingIn : 100
+    } );
+
 
 //
 //    $(".placeHolder").draggable(
