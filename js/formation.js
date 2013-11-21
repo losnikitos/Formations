@@ -71,13 +71,12 @@ var Formations = function () {
     };
 
     this.render = function () {
-        var list = $('<div class="btn-group-vertical"/>');
-        var button = $('<button type="button" class="btn btn-danger"/>');
+        var list = $('<ul class="list"/>');
+        var button = $('<li/>');
 
         formations.forEach(function (formation) {
             var b = button.clone();
             b.html(formation.name);
-//            b.attr({id: formation.name});
             b.click(function () {
                 formation.apply(field)
             });
