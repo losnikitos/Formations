@@ -189,9 +189,7 @@
 			}
 			this._positionOpts( true );
 			this.opened = false;
-
 		}
-
 	}
 
 	$.fn.dropdown = function( options ) {

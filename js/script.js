@@ -1,14 +1,23 @@
 $(function () {
-    //new Team().populateIn($("#playersList"));
+
 
     field = new Field($("#field"));
     formations = new Formations();
+
 
     $("#formations").append(formations.render());
     var defaultFormation = new Formations().get('4-4-2');
     defaultFormation.apply(field);
 
-    $(".toggle").dropdown(".list");
+    $("#formations .toggle").dropdown(".list");
+
+    var team = new Team;
+    team.init(function () {
+        $("#playersList").append(team.render());
+        $(".playersListsss").accordion();
+
+    });
+
 
 //    $( '#cd-dropdown' ).dropdown( {
 //        gutter : 0,

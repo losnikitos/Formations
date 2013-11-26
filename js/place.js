@@ -65,7 +65,7 @@ function Place(position) {
     this.updateLabel = function () {
         this.name = this.field.getRole(this.onField);
         this.elem.html(this.name);
-        this.elem.zIndex(Math.round(this.onField.y));
+        this.elem.zIndex(this.onField.y > 0 ? Math.round(this.onField.y) : 0);
     }
 
     /**
