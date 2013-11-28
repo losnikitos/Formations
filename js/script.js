@@ -1,21 +1,18 @@
 $(function () {
+    var field = new Field($(".field"));
+    var formations = new Formations(field);
 
-
-    field = new Field($("#field"));
-    formations = new Formations();
-
-
-    $("#formations").append(formations.render());
+    $(".formationsList").append(formations.render());
+    console.log(formations.render());
     var defaultFormation = new Formations().get('4-4-2');
     defaultFormation.apply(field);
 
-    $("#formations .toggle").dropdown(".list");
+    $(".slate.formations").dropdown(".formationsList");
 
     var team = new Team;
     team.init(function () {
-        $("#playersList").append(team.render());
-        $(".playersListsss").accordion();
-
+        $(".playersList").append(team.render());
+        $(".playersList").accordion({heightStyle: "content"});
     });
 
 

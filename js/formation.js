@@ -2,7 +2,7 @@
  * Библиотека расстановок
  * @constructor
  */
-var Formations = function () {
+var Formations = function (field) {
     var formations = [
         new Formation('4-4-2',
             [
@@ -71,18 +71,14 @@ var Formations = function () {
     };
 
     this.render = function () {
-        var list = $('<ul class="list"/>');
-        var button = $('<li/>');
-
-        formations.forEach(function (formation) {
-            var b = button.clone();
+        return formations.map(function (formation) {
+            var b = $('<li/>');
             b.html(formation.name);
             b.click(function () {
                 formation.apply(field)
-            });
-            list.append(b);
-        });
-        return list;
+            })
+            return b;
+        })
     }
 }
 

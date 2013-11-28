@@ -2,9 +2,7 @@
 
 body{
     font: italic 700 18px 'Roboto Condensed', sans-serif;
-}
-#playersList ul {
-    list-style: none;
+    margin: 0;
 }
 
 .player, .placeHolder {
@@ -12,6 +10,8 @@ body{
 }
 
 .player {
+
+
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 51%, #ededed 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#f3f3f3), color-stop(51%,#ededed), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
@@ -28,10 +28,11 @@ body{
 }
 
 .player img {
-    width: 30px;
-    height: 30px;
-    /*border-radius:20px;*/
+    width: 50px;
+    height: 50px;
     margin-right: 5px;
+    display: inline;
+    vertical-align: middle;
 }
 
 .player div {
@@ -54,6 +55,8 @@ body{
 
     z-index: 100;
 }
+
+
 
 .placeHolder {
     position: absolute;
@@ -88,19 +91,29 @@ body{
     margin: 0 auto;
 }
 
-#field {
+.field {
     background: url('../img/bg2.jpg') no-repeat;
     height: 540px;
     width: 960px;
-    border: 1px dashed darkgray;
+    margin: 0;
 }
 
-#formations {
-    padding: 20px;
-    display: inline-block;
+.playersList
+{
+    position:fixed;
+    top:  40px;
+    left: 40px;
+    width: 230px;
 }
 
-#formations button {
+.formationsList
+{
+    position: fixed;
+    top: 50px;
+    left: 650px;
+}
+
+.formations button {
     display: block;
     float: none;
     width: 100%;
@@ -113,16 +126,14 @@ body{
     width: 200px;
 }
 
-.toggle {
+.slate {
     width: 310px;
     height: 52px;
     background: url("../img/slate-white.png") 0 0 no-repeat;
-    /*padding: 13px 30px 7px 100px;*/
+    padding-top: 13px;
     text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
     color: black;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;;
 
     -webkit-transition: 500ms;
     -moz-transition: 500ms;
@@ -131,14 +142,27 @@ body{
     transition: 500ms;
 }
 
-.toggle:hover {
+.slate:hover {
     color: orangered;
     cursor: pointer;
     background: url("../img/slate-white-hover.png") 0 0 no-repeat;
 }
 
-.list li {
-    width: 100%;
+.slate.players
+{
+    position: fixed;
+    top: -5px;
+    left: 0;
+}
+
+.slate.formations {
+    position:fixed;
+    top: -5px;
+    left: 650px;
+}
+
+.formationsList li {
+    width: 172px;
     background: url("../img/slate2.png") 0 0 no-repeat;
     padding: 0 30px 0 30px;
     display: block;
@@ -157,9 +181,24 @@ body{
     transition: all 0.2s linear 0s;
 }
 
-.right
+.ui-widget
 {
-    position: fixed;
-    top: 30px;
-    left: 600px;
+    font: italic 700 14px 'Roboto Condensed', sans-serif;
+}
+
+.ui-accordion .ui-accordion-header
+{
+    padding: 7px 0 0 35px;
+    height:25px;
+    color: white;
+    background: url("../img/slate-dark_40px.png");
+    text-transform: uppercase;
+    border-radius: 0;
+    border: none;
+    margin: 0
+}
+
+.ui-accordion .ui-accordion-content
+{
+    padding: 0;
 }

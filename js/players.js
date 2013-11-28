@@ -22,9 +22,11 @@ var Team = function () {
     };
 
     this.render = function () {
-        var list = $("<ul class='playersListsss'/>");
+        var res = [];
         for (var pos in positions) {
             var header = $('<h3/>').html(positions[pos]);
+            res.push(header);
+
             var content = $('<div/>');
             this.groups[pos].forEach(function(p){
                 var player = $('<div class="player"/>').html(p.firstName + ' ');
@@ -32,8 +34,8 @@ var Team = function () {
                 var image = $('<img/>').attr('src', "img/players/" + p.img);
                 content.append(player.append(lastname).prepend(image));
             });
-            list.append(header).append(content);
+            res.push(content);
         }
-        return list;
+        return res;
     }
 }
