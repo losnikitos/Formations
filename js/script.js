@@ -11,36 +11,20 @@ $(function () {
 
     var team = new Team;
     team.init(function () {
-        $(".playersList").append(team.render());
-        $(".playersList").accordion({heightStyle: "content"});
+        $(".playersList")
+            .append(team.render())
+            .accordion({heightStyle: "content"});
+
+        $(".player").draggable({ revert: "invalid", helper: function( event ) {
+            return $(this).find("img").clone().css({width: '50px',height:'50px'});
+//            return $(this).find("img").clone();
+        } });
+
+        $(".slate").css({top: '-5px'});
+
     });
 
-
-//    $( '#cd-dropdown' ).dropdown( {
-//        gutter : 0,
-////        stack : true,
-//        delay : 100,
-//        slidingIn : 100
-//    } );
-
-
 //
-//    $(".placeHolder").draggable(
-//        {   containment: "parent",
-//            start: function (event, ui) {
-//                console.log(this);
-//                field.draggingNow = field.places[$(this).attr("id")];
-//            },
-//            drag: function (event, ui) {
-//                field.draggingNow.onDrag({x:ui.position.left,y:ui.position.top});
-//            },
-//            stop: function(event, ui)
-//            {
-//                console.log(field.draggingNow.id)
-//            }
-//
-//        });
-
 //    $(".placeHolder").droppable({
 //        hoverClass: "hover",
 //        accept: ".player",
@@ -48,8 +32,6 @@ $(function () {
 //            $(ui.draggable).detach().css({top: -40, left: 0}).appendTo(this);
 //        }
 //    });
-
-    $(".player").draggable({ revert: "invalid" });
 
 
 });

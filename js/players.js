@@ -1,10 +1,10 @@
 var Team = function () {
 
     var positions = {
-        goalkeeper: 'Вратари',
         striker: 'Нападающие',
         midfielder: 'Полузащитники',
-        defender: 'Защитники'
+        defender: 'Защитники',
+        goalkeeper: 'Вратари'
     };
 
     this.groups = {};

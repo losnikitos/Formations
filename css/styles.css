@@ -127,6 +127,10 @@ body{
 }
 
 .slate {
+    position: fixed;
+    top: -52px;
+    /*animation would put it in place*/
+
     width: 310px;
     height: 52px;
     background: url("../img/slate-white.png") 0 0 no-repeat;
@@ -150,14 +154,10 @@ body{
 
 .slate.players
 {
-    position: fixed;
-    top: -5px;
     left: 0;
 }
 
 .slate.formations {
-    position:fixed;
-    top: -5px;
     left: 650px;
 }
 
@@ -201,4 +201,6 @@ body{
 .ui-accordion .ui-accordion-content
 {
     padding: 0;
+    border:none;
+    border-radius: 0;
 }
