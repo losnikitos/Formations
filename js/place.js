@@ -31,7 +31,7 @@ function Place(position) {
             drag: function(event, ui) {field.dragging.onDrag(event,ui)}});
 
         this.elem.droppable({
-            accept: ".placeHolder",
+
             hoverClass: "hover",
             over: function(event, ui) {field.dragging.elem.addClass("hover"); field.draggingOnto = place},
             out: function(event, ui) {field.dragging.elem.removeClass("hover")},

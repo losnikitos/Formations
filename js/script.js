@@ -15,16 +15,24 @@ $(function () {
             .append(team.render())
             .accordion({heightStyle: "content"});
 
-        $(".player").draggable({ revert: "invalid", helper: function( event ) {
-            return $(this).find("img").clone().css({width: '50px',height:'50px'});
-//            return $(this).find("img").clone();
-        } });
+        $(".player").draggable({ revert: "invalid",
+            cursorAt: {
+                top: 25,
+                left: 25},
+            helper: function (event) {
+//                var url = $(this).find("img").attr('url');
+//                var img = $('<img/>').attr({url: url});
+                var img = $(this).find("img").clone();
+                img.addClass('playerface');
+                return img
+            },
+            zIndex: 120,
+            appendTo: '.field'});
 
         $(".slate").css({top: '-5px'});
-
     });
 
-//
+
 //    $(".placeHolder").droppable({
 //        hoverClass: "hover",
 //        accept: ".player",

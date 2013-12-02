@@ -9,7 +9,6 @@ var Team = function () {
 
     this.groups = {};
 
-
     this.init = function (callback) {
         var self = this;
         $.getJSON("data/players.json", function (data) {
