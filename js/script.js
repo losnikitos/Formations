@@ -1,9 +1,14 @@
 $(function () {
-    var field = new Field($(".field"));
-    var formations = new Formations(field);
+    field = new Field($(".field"));
+    field.addPlaces();
+    field.places.forEach(function (place) {
+        place.becomeDraggable();
+        place.becomeDroppable()
+    });
+
+    var formations = new Formations();
 
     $(".formationsList").append(formations.render());
-    console.log(formations.render());
     var defaultFormation = new Formations().get('4-4-2');
     defaultFormation.apply(field);
 
@@ -13,33 +18,15 @@ $(function () {
     team.init(function () {
         $(".playersList")
             .append(team.render())
-            .accordion({heightStyle: "content"});
-
-        $(".player").draggable({ revert: "invalid",
-            cursorAt: {
-                top: 25,
-                left: 25},
-            helper: function (event) {
-//                var url = $(this).find("img").attr('url');
-//                var img = $('<img/>').attr({url: url});
-                var img = $(this).find("img").clone();
-                img.addClass('playerface');
-                return img
-            },
-            zIndex: 120,
-            appendTo: '.field'});
+            .accordion({heightStyle: "content"})
+            .droppable({
+                activeClass: "hover",
+                accept: ".hasPlayer",
+                drop: function (ev, ui) {
+                    draggingPlace.releasePlayer();
+                }
+            })
 
         $(".slate").css({top: '-5px'});
     });
-
-
-//    $(".placeHolder").droppable({
-//        hoverClass: "hover",
-//        accept: ".player",
-//        drop: function (ev, ui) {
-//            $(ui.draggable).detach().css({top: -40, left: 0}).appendTo(this);
-//        }
-//    });
-
-
 });

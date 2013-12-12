@@ -2,7 +2,7 @@
  * Библиотека расстановок
  * @constructor
  */
-var Formations = function (field) {
+var Formations = function () {
     var formations = [
         new Formation('4-4-2',
             [
@@ -75,7 +75,7 @@ var Formations = function (field) {
             var b = $('<li/>');
             b.html(formation.name);
             b.click(function () {
-                formation.apply(field)
+                formation.apply()
             })
             return b;
         })
@@ -94,9 +94,8 @@ var Formation = function (name, positions) {
 
     /**
      * Применяем расстановку
-     * @param field
      */
-    this.apply = function (field) {
+    this.apply = function () {
         for (var i = 0; i < 11; i++) {
             var pos = this.positions[i];
             var place = field.places[i];

@@ -7,8 +7,6 @@ function Field(elem) {
     this.elem = elem;
     this.places = [];
 
-
-
     var fieldWidth = 50, fieldLength = 100;
     var fieldCenter = {x: fieldWidth / 2, y: fieldLength / 2};
 
@@ -20,11 +18,14 @@ function Field(elem) {
     var screenSkew = 0.004;
     var k = {x: screenWidth / fieldWidth, y: screenHeight / fieldLength};
 
-    for(var i = 0; i<11; i++)
+    this.addPlaces = function()
     {
-        var place = new Place({x:25,y:50});
-        place.putInto(this);
-        this.places.push(place);
+        for(var i = 0; i<11; i++)
+        {
+            var place = new Place({x:25,y:50});
+            this.elem.append(place.elem);
+            this.places.push(place);
+        }
     }
 
 
