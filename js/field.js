@@ -11,8 +11,11 @@ function Field(elem) {
     var fieldCenter = {x: fieldWidth / 2, y: fieldLength / 2};
 
     // Координаты на картинке, в пикселях
-    var screenWidth = 450, screenHeight = 300;
-    this.screenCenter = {x: 480, y: 320};
+    var screenWidth = elem.width(), screenHeight = elem.height();
+    this.screenCenter = {x: screenWidth/2, y: screenHeight/2};
+//    var screenWidth = 450, screenHeight = 300;
+//    this.screenCenter = {x: 480, y: 320};
+
 
     // Коэффициенты
     var screenSkew = 0.004;

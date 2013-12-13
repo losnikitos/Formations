@@ -35,6 +35,7 @@ function Place(position) {
     this.becomeDroppable = function () {
         this.elem.droppable({
             hoverClass: "hover",
+            activeClass: "welcoming",
             over: function (event, ui) {
                 ui.helper.addClass("hover");
                 $(event.toElement).addClass("hover");
@@ -53,7 +54,6 @@ function Place(position) {
                 //ui.helper - div, который тащили
 
                 $(event.toElement).removeClass("hover");
-
                 if (draggingPlace) //Тащим собрата-футболку (возможно, с игроком в ней)
                 {
                     self.exchangeWith(draggingPlace);

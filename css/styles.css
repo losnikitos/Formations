@@ -103,18 +103,26 @@ body {
 
 .field {
     position: absolute;
+    top: 110px;
+    left: 230px;
+    height: 360px;
+    width: 500px;
+}
+
+.background
+{
+    background: url('../img/bg2.jpg') no-repeat;
+    width: 960px;
+    height: 540px;
+    position: absolute;
     top: 0;
     left: 0;
-    background: url('../img/bg2.jpg') no-repeat;
-    height: 540px;
-    width: 960px;
-    margin: 0;
 }
 
 .playersList {
     position: fixed;
     top: 40px;
-    left: 40px;
+    left: 0;
     width: 230px;
 }
 
@@ -164,7 +172,7 @@ body {
 }
 
 .slate.players {
-    left: 0;
+    left: -40px;
 }
 
 .slate.formations {
@@ -250,4 +258,11 @@ body {
     /*width: 0;*/
     /*height: 0;*/
     opacity: 0;
+}
+
+.welcoming
+{
+    /*transition: all .3s ease-out;*/
+    /*brightness(1.1);*/
+    /*-webkit-transform: scale(1.1);*/
 }
